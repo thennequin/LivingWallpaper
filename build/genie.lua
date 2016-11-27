@@ -8,7 +8,8 @@ solution "LivingWallpaper"
 
 	project "LivingWallpaper"
 		uuid				"4A4C0573-DC2B-4899-92E5-61DF02FCA6FE"
-		kind				"WindowedApp"
+		--kind				"WindowedApp"
+		kind				"ConsoleApp"
 		targetdir			"../Output/"
 		
 		links				{ "opengl32", "glu32", "glew32" }
@@ -20,15 +21,25 @@ solution "LivingWallpaper"
 		includedirs {
 							"../Externals/glew-2.0.0/include"
 		}
-
-		platforms			"x32"
+		
+		configuration			"x32"
+			targetdir		"../Output/x32/"
 			libdirs {
 							"../Externals/glew-2.0.0/lib/Release/Win32"
 			}
-			
-		platforms			"x64"
+			postbuildcommands {
+							'xcopy "..\\..\\Externals\\lew-2.0.0\\bin\\Release\\Win32\\glew32.dll" "..\\..\\Output\\x32\\" /Y',
+							'xcopy "..\\..\\Output\\fragment.shader" "..\\..\\Output\\x32\\" /Y',
+			}
+
+		configuration			"x64"
+			targetdir		"../Output/x64/"
 			libdirs {
 							"../Externals/glew-2.0.0/lib/Release/x64"
+			}
+			postbuildcommands {
+							'xcopy "..\\..\\Externals\\glew-2.0.0\\bin\\Release\\x64\\glew32.dll" "..\\..\\Output\\x64\\" /Y',
+							'xcopy "..\\..\\Output\\fragment.shader" "..\\..\\Output\\x64\\" /Y',
 			}
 
 		configuration		"Debug"
