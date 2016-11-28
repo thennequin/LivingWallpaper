@@ -28,7 +28,7 @@ solution "LivingWallpaper"
 							"../Externals/glew-2.0.0/lib/Release/Win32"
 			}
 			postbuildcommands {
-							'xcopy "..\\..\\Externals\\lew-2.0.0\\bin\\Release\\Win32\\glew32.dll" "..\\..\\Output\\x32\\" /Y',
+							'xcopy "..\\..\\Externals\\glew-2.0.0\\bin\\Release\\Win32\\glew32.dll" "..\\..\\Output\\x32\\" /Y',
 							'xcopy "..\\..\\Output\\fragment.shader" "..\\..\\Output\\x32\\" /Y',
 			}
 
